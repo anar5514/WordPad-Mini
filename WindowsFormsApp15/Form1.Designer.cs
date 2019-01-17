@@ -35,7 +35,7 @@
             this.lined = new System.Windows.Forms.CheckBox();
             this.italic = new System.Windows.Forms.CheckBox();
             this.btnload = new System.Windows.Forms.Button();
-            this.save = new System.Windows.Forms.Button();
+            this.btnsave = new System.Windows.Forms.Button();
             this.txtboxload = new System.Windows.Forms.TextBox();
             this.txtboxsave = new System.Windows.Forms.TextBox();
             this.labelfont = new System.Windows.Forms.Label();
@@ -122,29 +122,39 @@
             this.btnload.TabIndex = 13;
             this.btnload.Text = "Load";
             this.btnload.UseVisualStyleBackColor = true;
+            this.btnload.Click += new System.EventHandler(this.btnload_Click);
             // 
-            // save
+            // btnsave
             // 
-            this.save.Location = new System.Drawing.Point(704, 47);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(75, 20);
-            this.save.TabIndex = 14;
-            this.save.Text = "Save";
-            this.save.UseVisualStyleBackColor = true;
+            this.btnsave.Location = new System.Drawing.Point(704, 47);
+            this.btnsave.Name = "btnsave";
+            this.btnsave.Size = new System.Drawing.Size(75, 20);
+            this.btnsave.TabIndex = 14;
+            this.btnsave.Text = "Save";
+            this.btnsave.UseVisualStyleBackColor = true;
+            this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
             // 
             // txtboxload
             // 
+            this.txtboxload.ForeColor = System.Drawing.Color.Silver;
             this.txtboxload.Location = new System.Drawing.Point(528, 21);
             this.txtboxload.Name = "txtboxload";
             this.txtboxload.Size = new System.Drawing.Size(160, 20);
             this.txtboxload.TabIndex = 15;
+            this.txtboxload.Text = "Enter a file name to load";
+            this.txtboxload.Enter += new System.EventHandler(this.txtboxload_Enter);
+            this.txtboxload.Leave += new System.EventHandler(this.txtboxload_Leave);
             // 
             // txtboxsave
             // 
+            this.txtboxsave.ForeColor = System.Drawing.Color.Silver;
             this.txtboxsave.Location = new System.Drawing.Point(528, 47);
             this.txtboxsave.Name = "txtboxsave";
             this.txtboxsave.Size = new System.Drawing.Size(160, 20);
             this.txtboxsave.TabIndex = 16;
+            this.txtboxsave.Text = "Enter a file name  to save";
+            this.txtboxsave.Enter += new System.EventHandler(this.txtboxsave_Enter);
+            this.txtboxsave.Leave += new System.EventHandler(this.txtboxsave_Leave);
             // 
             // labelfont
             // 
@@ -253,7 +263,7 @@
             this.Controls.Add(this.labelfont);
             this.Controls.Add(this.txtboxsave);
             this.Controls.Add(this.txtboxload);
-            this.Controls.Add(this.save);
+            this.Controls.Add(this.btnsave);
             this.Controls.Add(this.btnload);
             this.Controls.Add(this.italic);
             this.Controls.Add(this.lined);
@@ -278,7 +288,7 @@
         private System.Windows.Forms.CheckBox lined;
         private System.Windows.Forms.CheckBox italic;
         private System.Windows.Forms.Button btnload;
-        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button btnsave;
         private System.Windows.Forms.TextBox txtboxload;
         private System.Windows.Forms.TextBox txtboxsave;
         private System.Windows.Forms.Label labelfont;
