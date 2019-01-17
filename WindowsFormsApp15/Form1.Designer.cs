@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp15
 {
-    partial class Form1
+    partial class WordPadMini
     {
         /// <summary>
         /// Required designer variable.
@@ -34,19 +34,19 @@
             this.bold = new System.Windows.Forms.CheckBox();
             this.lined = new System.Windows.Forms.CheckBox();
             this.italic = new System.Windows.Forms.CheckBox();
-            this.right = new System.Windows.Forms.CheckBox();
-            this.center = new System.Windows.Forms.CheckBox();
-            this.left = new System.Windows.Forms.CheckBox();
             this.btnload = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.txtboxload = new System.Windows.Forms.TextBox();
             this.txtboxsave = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelfont = new System.Windows.Forms.Label();
+            this.labelsize = new System.Windows.Forms.Label();
+            this.labelfontstyle = new System.Windows.Forms.Label();
+            this.labelalign = new System.Windows.Forms.Label();
+            this.labelcolor = new System.Windows.Forms.Label();
             this.btncolor = new System.Windows.Forms.Button();
+            this.btnleft = new System.Windows.Forms.RadioButton();
+            this.btnright = new System.Windows.Forms.RadioButton();
+            this.btncenter = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // basetxtbox
@@ -114,42 +114,6 @@
             this.italic.UseVisualStyleBackColor = true;
             this.italic.CheckedChanged += new System.EventHandler(this.italic_CheckedChanged);
             // 
-            // right
-            // 
-            this.right.Appearance = System.Windows.Forms.Appearance.Button;
-            this.right.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.right.Location = new System.Drawing.Point(381, 31);
-            this.right.Name = "right";
-            this.right.Size = new System.Drawing.Size(25, 25);
-            this.right.TabIndex = 11;
-            this.right.Text = "R";
-            this.right.UseVisualStyleBackColor = true;
-            this.right.CheckedChanged += new System.EventHandler(this.right_CheckedChanged);
-            // 
-            // center
-            // 
-            this.center.Appearance = System.Windows.Forms.Appearance.Button;
-            this.center.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.center.Location = new System.Drawing.Point(350, 31);
-            this.center.Name = "center";
-            this.center.Size = new System.Drawing.Size(25, 25);
-            this.center.TabIndex = 10;
-            this.center.Text = "C";
-            this.center.UseVisualStyleBackColor = true;
-            this.center.CheckedChanged += new System.EventHandler(this.center_CheckedChanged);
-            // 
-            // left
-            // 
-            this.left.Appearance = System.Windows.Forms.Appearance.Button;
-            this.left.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.left.Location = new System.Drawing.Point(319, 31);
-            this.left.Name = "left";
-            this.left.Size = new System.Drawing.Size(25, 25);
-            this.left.TabIndex = 9;
-            this.left.Text = "L";
-            this.left.UseVisualStyleBackColor = true;
-            this.left.CheckedChanged += new System.EventHandler(this.left_CheckedChanged);
-            // 
             // btnload
             // 
             this.btnload.Location = new System.Drawing.Point(704, 21);
@@ -182,88 +146,124 @@
             this.txtboxsave.Size = new System.Drawing.Size(160, 20);
             this.txtboxsave.TabIndex = 16;
             // 
-            // label1
+            // labelfont
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Font";
+            this.labelfont.AutoSize = true;
+            this.labelfont.Location = new System.Drawing.Point(46, 9);
+            this.labelfont.Name = "labelfont";
+            this.labelfont.Size = new System.Drawing.Size(28, 13);
+            this.labelfont.TabIndex = 17;
+            this.labelfont.Text = "Font";
             // 
-            // label2
+            // labelsize
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(126, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Size";
+            this.labelsize.AutoSize = true;
+            this.labelsize.Location = new System.Drawing.Point(145, 9);
+            this.labelsize.Name = "labelsize";
+            this.labelsize.Size = new System.Drawing.Size(27, 13);
+            this.labelsize.TabIndex = 18;
+            this.labelsize.Text = "Size";
             // 
-            // label3
+            // labelfontstyle
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(210, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "FontStyle";
+            this.labelfontstyle.AutoSize = true;
+            this.labelfontstyle.Location = new System.Drawing.Point(227, 9);
+            this.labelfontstyle.Name = "labelfontstyle";
+            this.labelfontstyle.Size = new System.Drawing.Size(51, 13);
+            this.labelfontstyle.TabIndex = 19;
+            this.labelfontstyle.Text = "FontStyle";
             // 
-            // label4
+            // labelalign
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(316, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Alignment";
+            this.labelalign.AutoSize = true;
+            this.labelalign.Location = new System.Drawing.Point(333, 9);
+            this.labelalign.Name = "labelalign";
+            this.labelalign.Size = new System.Drawing.Size(53, 13);
+            this.labelalign.TabIndex = 20;
+            this.labelalign.Text = "Alignment";
             // 
-            // label5
+            // labelcolor
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(422, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Color";
+            this.labelcolor.AutoSize = true;
+            this.labelcolor.Location = new System.Drawing.Point(440, 9);
+            this.labelcolor.Name = "labelcolor";
+            this.labelcolor.Size = new System.Drawing.Size(31, 13);
+            this.labelcolor.TabIndex = 21;
+            this.labelcolor.Text = "Color";
             // 
             // btncolor
             // 
             this.btncolor.Location = new System.Drawing.Point(412, 32);
             this.btncolor.Name = "btncolor";
-            this.btncolor.Size = new System.Drawing.Size(97, 23);
+            this.btncolor.Size = new System.Drawing.Size(97, 25);
             this.btncolor.TabIndex = 22;
             this.btncolor.Text = "Choose color";
             this.btncolor.UseVisualStyleBackColor = true;
             this.btncolor.Click += new System.EventHandler(this.color_Click);
             // 
-            // Form1
+            // btnleft
+            // 
+            this.btnleft.Appearance = System.Windows.Forms.Appearance.Button;
+            this.btnleft.Location = new System.Drawing.Point(319, 32);
+            this.btnleft.Name = "btnleft";
+            this.btnleft.Size = new System.Drawing.Size(25, 25);
+            this.btnleft.TabIndex = 23;
+            this.btnleft.TabStop = true;
+            this.btnleft.Text = "L";
+            this.btnleft.UseVisualStyleBackColor = true;
+            this.btnleft.CheckedChanged += new System.EventHandler(this.btnleft_CheckedChanged);
+            // 
+            // btnright
+            // 
+            this.btnright.Appearance = System.Windows.Forms.Appearance.Button;
+            this.btnright.Location = new System.Drawing.Point(381, 32);
+            this.btnright.Name = "btnright";
+            this.btnright.Size = new System.Drawing.Size(25, 25);
+            this.btnright.TabIndex = 24;
+            this.btnright.TabStop = true;
+            this.btnright.Text = "R";
+            this.btnright.UseVisualStyleBackColor = true;
+            this.btnright.CheckedChanged += new System.EventHandler(this.btnright_CheckedChanged);
+            // 
+            // btncenter
+            // 
+            this.btncenter.Appearance = System.Windows.Forms.Appearance.Button;
+            this.btncenter.Location = new System.Drawing.Point(350, 32);
+            this.btncenter.Name = "btncenter";
+            this.btncenter.Size = new System.Drawing.Size(25, 25);
+            this.btncenter.TabIndex = 25;
+            this.btncenter.TabStop = true;
+            this.btncenter.Text = "C";
+            this.btncenter.UseVisualStyleBackColor = true;
+            this.btncenter.CheckedChanged += new System.EventHandler(this.btncenter_CheckedChanged);
+            // 
+            // WordPadMini
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 457);
+            this.Controls.Add(this.btncenter);
+            this.Controls.Add(this.btnright);
+            this.Controls.Add(this.btnleft);
             this.Controls.Add(this.btncolor);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelcolor);
+            this.Controls.Add(this.labelalign);
+            this.Controls.Add(this.labelfontstyle);
+            this.Controls.Add(this.labelsize);
+            this.Controls.Add(this.labelfont);
             this.Controls.Add(this.txtboxsave);
             this.Controls.Add(this.txtboxload);
             this.Controls.Add(this.save);
             this.Controls.Add(this.btnload);
-            this.Controls.Add(this.right);
-            this.Controls.Add(this.center);
-            this.Controls.Add(this.left);
             this.Controls.Add(this.italic);
             this.Controls.Add(this.lined);
             this.Controls.Add(this.bold);
             this.Controls.Add(this.size);
             this.Controls.Add(this.font);
             this.Controls.Add(this.basetxtbox);
-            this.Name = "Form1";
+            this.Name = "WordPadMini";
             this.Text = "WordPad";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.WordPadMini_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,19 +277,19 @@
         private System.Windows.Forms.CheckBox bold;
         private System.Windows.Forms.CheckBox lined;
         private System.Windows.Forms.CheckBox italic;
-        private System.Windows.Forms.CheckBox right;
-        private System.Windows.Forms.CheckBox center;
-        private System.Windows.Forms.CheckBox left;
         private System.Windows.Forms.Button btnload;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.TextBox txtboxload;
         private System.Windows.Forms.TextBox txtboxsave;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelfont;
+        private System.Windows.Forms.Label labelsize;
+        private System.Windows.Forms.Label labelfontstyle;
+        private System.Windows.Forms.Label labelalign;
+        private System.Windows.Forms.Label labelcolor;
         private System.Windows.Forms.Button btncolor;
+        private System.Windows.Forms.RadioButton btnleft;
+        private System.Windows.Forms.RadioButton btnright;
+        private System.Windows.Forms.RadioButton btncenter;
     }
 }
 

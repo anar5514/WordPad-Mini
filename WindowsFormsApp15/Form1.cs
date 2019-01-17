@@ -10,40 +10,45 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp15
 {
-    public partial class Form1 : Form
+    public partial class WordPadMini : Form
     {
-        public Form1()
+        FontStyle oldstyle = FontStyle.Regular;
+        public string Filename { get; set; }
+
+        public WordPadMini()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void WordPadMini_Load(object sender, EventArgs e)
         {
             font.Items.AddRange(FontFamily.Families);
             font.DisplayMember = "Name";
-            
+ 
             for (int i = 8; i < 75; i += 5)
             {
                 size.Items.Add(i);
             }
 
-            font.SelectedIndex = 156;
-            size.SelectedIndex = 1;
+            size.Text = "13";
+            font.Text = "Times New Roman";
+
+            basetxtbox.SelectionAlignment = HorizontalAlignment.Left;
         }
 
         private void color_Click(object sender, EventArgs e)
         {
             ColorDialog colordialog = new ColorDialog();
-        
+
             if (colordialog.ShowDialog() == DialogResult.OK)
             {
-                colordialog.Color = basetxtbox.BackColor;
+                basetxtbox.ForeColor = colordialog.Color;
             }
         }
-        
+
         private void font_SelectedIndexChanged(object sender, EventArgs e)
-        {                    
-            
+        {
+            basetxtbox.SelectionFont = new Font(font.Text, int.Parse(size.Text));
         }
 
         private void size_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,44 +58,59 @@ namespace WindowsFormsApp15
 
         private void bold_CheckedChanged(object sender, EventArgs e)
         {
-            oldstyle = basetxtbox.Font.Style;
+
             if (bold.Checked)
-            basetxtbox.SelectionFont = new Font(font.Text, Convert.ToInt32(size.Text), oldstyle | FontStyle.Bold);
-            else if(bold.Checked == false)
+            {
+                oldstyle = basetxtbox.SelectionFont.Style;
+                basetxtbox.SelectionFont = new Font(font.Text, Convert.ToInt32(size.Text), oldstyle | FontStyle.Bold);
+            }
+
+            else if (bold.Checked == false)
                 basetxtbox.SelectionFont = new Font(font.Text, Convert.ToInt32(size.Text), oldstyle & ~FontStyle.Regular);
         }
-        FontStyle oldstyle = FontStyle.Regular;
+
         private void lined_CheckedChanged(object sender, EventArgs e)
         {
-            oldstyle = basetxtbox.Font.Style;
+
             if (lined.Checked)
+            {
+                oldstyle = basetxtbox.SelectionFont.Style;
                 basetxtbox.SelectionFont = new Font(font.Text, Convert.ToInt32(size.Text), oldstyle | FontStyle.Underline);
+            }
+
             else if (lined.Checked == false)
                 basetxtbox.SelectionFont = new Font(font.Text, Convert.ToInt32(size.Text), oldstyle & ~FontStyle.Regular);
         }
 
         private void italic_CheckedChanged(object sender, EventArgs e)
         {
-            oldstyle = basetxtbox.Font.Style;
+
             if (italic.Checked)
-                basetxtbox.SelectionFont = new Font(font.Text, Convert.ToInt32(size.Text), oldstyle|FontStyle.Italic);
+            {
+                oldstyle = basetxtbox.SelectionFont.Style;
+                basetxtbox.SelectionFont = new Font(font.Text, Convert.ToInt32(size.Text), oldstyle | FontStyle.Italic);
+            }
+
             else if (italic.Checked == false)
-                basetxtbox.SelectionFont = new Font(font.Text, Convert.ToInt32(size.Text), oldstyle &~FontStyle.Regular);
+                basetxtbox.SelectionFont = new Font(font.Text, Convert.ToInt32(size.Text), oldstyle & ~FontStyle.Regular);
+        }
+        
+        private void btnleft_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnleft.Checked)
+                basetxtbox.SelectionAlignment = HorizontalAlignment.Left;
         }
 
-        private void left_CheckedChanged(object sender, EventArgs e)
+        private void btncenter_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (btncenter.Checked)
+                basetxtbox.SelectionAlignment = HorizontalAlignment.Center;
         }
 
-        private void center_CheckedChanged(object sender, EventArgs e)
+        private void btnright_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void right_CheckedChanged(object sender, EventArgs e)
-        {
-
+            if (btnright.Checked)
+                basetxtbox.SelectionAlignment = HorizontalAlignment.Right;
         }
     }
 }
